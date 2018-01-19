@@ -10,7 +10,7 @@
         "*://*.facebook.com/*"
       ],
       "js": [
-        "dist/Socialex.js"
+        "dist/socialbot.js"
       ]
     }
   ],
