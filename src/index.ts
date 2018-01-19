@@ -1,16 +1,11 @@
 //import { MouseEvent } from "react";
 
-function tickUnfollow() {
+function myClick() {
 
-
-    //await browser.storage.local.get("users");
-
-
-    //console.groupCollapsed('tick');
-    const list = document.body.querySelectorAll('a');
+    const list = document.body.querySelectorAll('div,a')
     for (var i = list.length-1; i >= 0; i--) {
-        const buttonElement: HTMLAnchorElement = list[i];
-        if (/^.*To se mi líbí.*$/g.test(buttonElement.innerText)) {
+        const buttonElement: any = list[i];
+        if (/^.*Super.*$/g.test(buttonElement.innerText)) {
             buttonElement.removeEventListener('click', clickListener, false)
             buttonElement.addEventListener('click', clickListener, false)
         }
@@ -22,7 +17,7 @@ function clickListener(event: MouseEvent) {
 }
 
 setInterval(() => {
-   tickUnfollow()
+   myClick()
 }, 500);
 
 
