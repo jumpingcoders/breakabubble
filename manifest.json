@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Socialex",
+  "version": "0.0.1",
+  "author": "Jakub Rychlý",
+  "description": "Super webextension for our best app for FakeHacks.",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.facebook.com/*"
+      ],
+      "js": [
+        "dist/Socialex.js"
+      ]
+    }
+  ],
+  "options_ui": {
+    "page": "static/options.html"
+  },
+  "permissions": ["storage"]
+}
