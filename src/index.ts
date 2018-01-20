@@ -1,4 +1,5 @@
 import findUrlOnPost from './findUrlOnPost';
+import * as superagent from 'superagent';
 
 
 
@@ -109,11 +110,23 @@ function createClickListener(reaction:number){
 }
 
 
-function clickListener(reaction:number , event: {target: HTMLElement}) {
+async function clickListener(reactionId:number , event: {target: HTMLElement}) {
 
     if(typeof lastHoveredUrl !== 'undefined'){
 
-        alert(`Reaction ${REACTIONS[reaction]} on page "${lastHoveredUrl}".`);
+        const reaction = REACTIONS[reactionId];
+        const url = lastHoveredUrl;
+
+        console.log(`Reaction ${reaction} on page "${url}".`);
+
+        superagent
+            .post('http://localhost:8000/api/users/typek/reactions')
+            .send({reaction,url})
+            .set('accept', 'json')
+            .end((err, res) => {
+                console.log(`Server is saying: "${res.body.message}".`);
+                //console.log(err,res);
+            });
     }
 
 }
