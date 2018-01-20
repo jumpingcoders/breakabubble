@@ -1,23 +1,9 @@
-function saveOptions(e) {
-    e.preventDefault();
-    browser.storage.local.set({
-        color: document.querySelector("#color").value
-    });
-}
-
-function restoreOptions() {
-
-    function setCurrentChoice(result) {
-        document.querySelector("#color").value = result.color || "blue";
-    }
-
-    function onError(error) {
-        console.log(`Error: ${error}`);
-    }
-
-    var getting = browser.storage.local.get("color");
-    getting.then(setCurrentChoice, onError);
-}
-
-document.addEventListener("DOMContentLoaded", restoreOptions);
-document.querySelector("form").addEventListener("submit", saveOptions);
+browser.storage.local.get('userId').then((data, error) => {
+    fetch('https://socialex-api.herokuapp.com/api/users/' + data.userId)
+        .then(res => res.json())
+        .then(response => {
+            const progressFill = document.getElementsByClassName('progress-fill')[0];
+            progressFill.style.width = response.reactions_russia_vs_eu + '%';
+            progressFill.innerText = response.reactions_russia_vs_eu + ' %';
+        });
+});

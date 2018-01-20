@@ -2,10 +2,10 @@ import findUrlOnPost from './findUrlOnPost';
 import * as superagent from 'superagent';
 
 
-
-const profileLink = document.body.querySelectorAll('a[title="Profile"]')[0];
+const profileLink = document.body.querySelectorAll('a[title="Profile"],a[title="Profil"]')[0];
 const userId = ((profileLink.getAttribute('href')||'').split('/').pop());
 
+browser.runtime.sendMessage({"userId": userId});
 
 //const elementsCache: {element: HTMLElement; reaction: number}[] = [];
 
