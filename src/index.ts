@@ -3,6 +3,9 @@ import * as superagent from 'superagent';
 
 
 
+const profileLink = document.body.querySelectorAll('a[title="Profile"]')[0];
+const userId = ((profileLink.getAttribute('href')||'').split('/').pop());
+
 
 //const elementsCache: {element: HTMLElement; reaction: number}[] = [];
 
@@ -120,7 +123,7 @@ async function clickListener(reactionId:number , event: {target: HTMLElement}) {
         console.log(`Reaction ${reaction} on page "${url}".`);
 
         superagent
-            .post('http://localhost:8000/api/users/typek/reactions')
+            .post(`http://localhost:8000/api/users/${userId}/reactions`)
             .send({reaction,url})
             .set('accept', 'json')
             .end((err, res) => {
