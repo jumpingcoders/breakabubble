@@ -1,19 +1,131 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="utf-8">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Source Sans Pro';
+            }
 
-<body>
+            .environment {
+                width: 360px;
+                height: 480px;
+                background-image: url('1.png');
+                background-size: auto 100%;
+                background-position: center center;
+            }
 
-<form>
-    <label>Border color<input type="text" id="color" ></label>
-    <button type="submit">Save</button>
-</form>
+            .Stickman {
+                width: 240px;
+                height: 342px;
+                background-image: url('./stickmans/test.png');
+                background-size: 100% auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                animation: stickman 0.8s infinite step-end;
+            }
 
-<script src="options.js"></script>
+            .Stickman:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 26px;
+                background: #001489;
+                border-radius: 13px;
+                top: -20px;
+            }
 
-</body>
+            .Stickman:after {
+                content: '60%';
+                position: absolute;
+                width: 60%;
+                height: 26px;
+                left: 0;
+                top: -20px;
+                background: #cc0000;
+                text-align: center;
+                border-top-left-radius: 13px;
+                border-bottom-left-radius: 13px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
+            .achievement {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.6);
+            }
+
+            .achievement-text {
+                padding: 5px 8px;
+            }
+
+            .achievement-text-content {
+                display: block;
+                font-size: 18px;
+            }
+
+            .achievement-text-highlight {
+                font-weight: 600;
+                color: black;
+                text-decoration: none;
+            }
+
+            .achievement-text-highlight::after {
+                content: ' >>'
+            }
+
+            @keyframes stickman {
+                0% {
+                    background-image: url('./stickmans/ee/jednaee.png');
+                }
+
+                14.2% {
+                    background-image: url('./stickmans/ee/dvaee.png');
+                }
+
+                28.5% {
+                    background-image: url('./stickmans/ee/triee.png');
+                }
+
+                42.8% {
+                    background-image: url('./stickmans/ee/ctyriee.png');
+                }
+
+                57.1% {
+                    background-image: url('./stickmans/ee/petee.png');
+                }
+
+                71.4% {
+                    background-image: url('./stickmans/ee/sestee.png');
+                }
+
+                85.7% {
+                    background-image: url('./stickmans/ee/sedmee.png');
+                }
+
+                100% {
+                    background-image: url('./stickmans/ee/osmee.png');
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="environment">
+            <div class="Stickman"></div>
+        </div>
+        <div class="achievement">
+            <div class="achievement-text">
+                <span class="achievement-text-content">Moc koukáš na seriózní weby...</span>
+                <a href="https://sputniknews.com" class="achievement-text-content achievement-text-highlight">Zkus Sputnik</a>
+            </div>
+        </div>
+        <script src="options.js"></script>
+    </body>
 </html>
