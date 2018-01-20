@@ -123,7 +123,7 @@ async function clickListener(reactionId:number , event: {target: HTMLElement}) {
         console.log(`Reaction ${reaction} on page "${url}".`);
 
         superagent
-            .post(`http://localhost:8000/api/users/${userId}/reactions`)
+            .post(`https://socialex-api.herokuapp.com/api/users/${userId}/reactions`)
             .send({reaction,url})
             .set('accept', 'json')
             .end((err, res) => {
