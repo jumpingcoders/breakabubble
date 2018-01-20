@@ -1,8 +1,8 @@
-//import { MouseEvent } from "react";
+let reaction = ""
 
-function myClick() {
+function superHey() {
 
-    const list = document.body.querySelectorAll('div,a')
+    const list = document.body.querySelectorAll('div')
     for (var i = list.length-1; i >= 0; i--) {
         const buttonElement: any = list[i];
         if (/^.*Super.*$/g.test(buttonElement.innerText)) {
@@ -13,17 +13,17 @@ function myClick() {
 }
 
 function clickListener(event: MouseEvent) {
-    alert(findUserId(event.target as HTMLElement))
+    let urlik = findUserId(event.target as HTMLElement)
+    alert(urlik)
 }
 
 setInterval(() => {
-   myClick()
+   superHey()
 }, 500);
 
 
 function _findUserIdOnSelfOfChildren(element: HTMLElement):string[] {//todo not optimalisation
-    const userIds:string[] = [];
-    //console.log(element.tagName);
+    const userIds:string[] = []
     if(element.tagName==='A'){
         const url = element.getAttribute('href');
         if(typeof url === 'string'){
@@ -41,6 +41,7 @@ function _findUserIdOnSelfOfChildren(element: HTMLElement):string[] {//todo not 
             userIds.push(userId);
         }
     }
+    console.log(userIds)
     return userIds
 }
 
