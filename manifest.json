@@ -17,5 +17,13 @@
   "options_ui": {
     "page": "static/options.html"
   },
+  "icons": {
+  "48": "icons/48.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/48.png"
+    }
+  },
   "permissions": ["storage"]
 }
